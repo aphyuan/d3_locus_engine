@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>d3</title>
+    <script type="text/javascript" src="//d3js.org/d3.v3.js"></script>
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/underscore.js"></script>
+  </head>
+  <body>
+    <div id="bn"/>
+    <script src="js/d3-bayesian-network.js"></script>
+    <script type="text/javascript">
+    var nodes = [
+
+            {
+          "name": "Pluggable Algorithms",
+          "states": ["Door 1", "Door 2", "Door 3"],
+          "cpt": {
+              "node": {
+                  "name": "Pluggable Algorithms",
+                  "states": ["Door 1", "Door 2", "Door 3"]
+              },
+              "parents": [],
+              "probabilities": [0,0,0]
+          },
+          "marginalized": {
+              "node": {
+                  "name": "Pluggable Algorithms",
+                  "states": ["Door 1", "Door 2", "Door 3"]
+              },
+              "parents": [],
+              "probabilities": [0,0, 0.0]
+          }
+          },
+      {
+    "name": "Big Data",
+    "states": ["Door 1", "Door 2", "Door 3"],
+    "cpt": {
+        "node": {
+            "name": "Big Data",
+            "states": ["Door 1", "Door 2", "Door 3"]
+        },
+        "parents": [],
+        "probabilities": [0,0,0]
+    },
+    "marginalized": {
+        "node": {
+            "name": "Big Data",
+            "states": ["Door 1", "Door 2", "Door 3"]
+        },
+        "parents": [],
+        "probabilities": [0,0, 0.0]
+    }
+    },
+      {
+    "name": "Location-Based",
+    "states": ["Door 1", "Door 2", "Door 3"],
+    "cpt": {
+        "node": {
+            "name": "Location-Based",
+            "states": ["Door 1", "Door 2", "Door 3"]
+        },
+        "parents": [],
+        "probabilities": [0,0,0]
+    },
+    "marginalized": {
+        "node": {
+            "name": "Location-Based",
+            "states": ["Door 1", "Door 2", "Door 3"]
+        },
+        "parents": [],
+        "probabilities": [0,0, 0.0]
+    }
+}, {
+    "name": "Real-Time",
+    "states": ["Door 1", "Door 2", "Door 3"],
+    "cpt": {
+        "node": {
+            "name": "Real-Time",
+            "states": ["Door 1", "Door 2", "Door 3"]
+        },
+        "parents": [],
+        "probabilities": [0,0,0]
+    },
+    "marginalized": {
+        "node": {
+            "name": "Real-Time",
+            "states": ["Door 1", "Door 2", "Door 3"]
+        },
+        "parents": [],
+        "probabilities": [0,0,0]
+    }
+}, {
+    "name": "Locus Engine",
+    "states": [],
+    "cpt": {
+        "node": {
+            "name": "Locus Engine",
+            "states": ["Door 1", "Door 2", "Door 3"]
+        },
+        "parents": [{
+            "name": "Pluggable Algorithms",
+            "states": ["Door 1", "Door 2", "Door 3"]
+        },
+          {
+            "name": "Big Data",
+            "states": ["Door 1", "Door 2", "Door 3"]
+        },
+          {
+            "name": "Location-Based",
+            "states": ["Door 1", "Door 2", "Door 3"]
+        }, {
+            "name": "Real-Time",
+            "states": ["Door 1", "Door 2", "Door 3"]
+        }],
+        "probabilities": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    "marginalized": {
+        "node": {
+            "name": "Locus Engine",
+            "states": []
+        },
+        "parents": [],
+        "probabilities": []
+    }
+}]
+var edges = [{"source":0,"target":4},{"source":1,"target":4},{"source":2,"target":4},{"source":3,"target":4}]
+// Style can be "cpt" or "barchart". "cpt" doesn't look nice on Chrome
+var bnGraph = d3.bayesianNetwork("#bn", "barchart")
+bnGraph({"nodes": nodes, "edges": edges})
+</script>
+  </body>
+</html>
